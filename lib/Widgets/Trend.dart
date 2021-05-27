@@ -16,7 +16,7 @@ buildTrend(SizingInformation sizingInformation, {String title, String views, Str
             border: Border.all(color: Colors.white, width: 1),
             borderRadius: BorderRadius.all(Radius.circular(5)),),
           child: Text("#", style: TextStyle(
-            fontSize: 16, fontWeight: FontWeight.bold,
+            fontSize: 20, fontWeight: FontWeight.bold,
           ),),
 
         ),
