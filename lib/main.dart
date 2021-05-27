@@ -32,7 +32,7 @@ class Homepage extends StatelessWidget {
                 children: [
                   SizedBox(height: 45,),
 
-                 buildSearchBox(sizingInformation),
+                 buildSearchBox(sizingInformation, context),
 
                   SizedBox(
                     height: 15,
