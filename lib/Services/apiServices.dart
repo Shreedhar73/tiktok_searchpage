@@ -9,14 +9,17 @@ class ApiServices{
   final User user;
   ApiServices(this.user);
   static const baseurl = "https://ka-mao.xyz";
-  static const searchUserUrl = "$baseurl/user/search";
 
 
 
 
-  static Future <List<User>> searchUser() async{
 
-    var resp = await client.get('$searchUserUrl');
+
+
+  static Future <List<User>> searchUser(name) async{
+    final String searchUserUrl = "$baseurl/user/search?name=$name";
+
+    var resp = await client.get(searchUserUrl);
     if ( resp.statusCode == 200){
       var jsonString = resp.body;
       return userFromJson(jsonString);

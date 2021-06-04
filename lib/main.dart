@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class Homepage extends StatelessWidget {
- // final UserController userController = Get.put(UserController());
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
@@ -50,7 +50,7 @@ class Homepage extends StatelessWidget {
                         width: sizingInformation.localWidgetSize.width * 0.80,
                         child: TextField(
                           onTap: () {
-                            Get.to(searchPage());
+                            Get.to(() => searchPage());
                           },
                           decoration: InputDecoration(
                               hintText: "Search",

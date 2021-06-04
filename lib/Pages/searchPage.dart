@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
+import 'package:page_ui/Controllers/userController.dart';
 import 'package:page_ui/Models/User.dart';
 import 'package:page_ui/Services/apiServices.dart';
 
 import 'package:page_ui/main.dart';
 
 class searchPage extends StatelessWidget {
+  // final myController = TextEditingController();
+  // @override
+  // void dispose(){
+  //   myController.dispose();
+  //
+  // }
+  final userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +35,7 @@ class searchPage extends StatelessWidget {
 
               Container(
                 child: InkWell(
-                  onTap: (){Get.to(Homepage());},
+                  onTap: () => Get.back(),
                   child: Icon(
                     Icons.arrow_back_rounded,
                     color: Colors.black,
@@ -40,6 +49,15 @@ class searchPage extends StatelessWidget {
                 color: Colors.grey.shade200,
 
                 child: TextField(
+                  //controller: myController,
+                  onChanged: (name){
+                    userController.searchUser(name);
+
+
+                  },
+                  onEditingComplete: (){
+                    Get.to(Homepage());
+                  },
 
                   decoration: InputDecoration(
 
@@ -49,6 +67,7 @@ class searchPage extends StatelessWidget {
                       border: InputBorder.none),
                 ),
               ),
+
               Container(
                 child: Icon(
                  Icons.clear_rounded,
@@ -58,45 +77,42 @@ class searchPage extends StatelessWidget {
               ),
             ],),
           ),
-          SingleChildScrollView(
-            
-            child: FutureBuilder<List<User>>(
-              future: ApiServices.searchUser(),
-              builder: (context, snapshot){
-                if(snapshot.hasData){
-                  final userx = snapshot.data;
-                  return ListView.builder(
+
+          Flexible(
+            child: Obx(()=>ListView.builder(
                     scrollDirection: Axis.vertical,
                       shrinkWrap: true,
-                      itemCount: userx.length,
+                      itemCount: userController.userList.length,
                       itemBuilder: (context, index){
-                        final user = userx[index];
+                        final user = userController.userList[index];
                         return Container(
                           alignment: Alignment.centerLeft,
                           padding: EdgeInsets.all(10),
-                          child: Column(
+                          child: Row(
 
                             children: [
-                              Expanded(
-                                flex: 0,
-                                  child: Text(user.name)),
+                              CircleAvatar(
+                                //radius: 20,
+                                  backgroundColor: Colors.white60,
+                                  child: Image.network(ApiServices.baseurl.toString()+user.profilePicture.toString(),
+                                  errorBuilder: (context, exception, stackTrace){
+                                    return Image.network("https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+                                  },
+                                  )),
+                               Padding(
+                                 padding: const EdgeInsets.all(10.0),
+                                 child: Text(user.name),
+                               ),
 
 
                             ],
                           ),
                         );
 
-                  });
+                  })
+                  ),
+          ),
 
-                  //return Text(snapshot.data.name);
-                }
-                else if(snapshot.hasError){
-                  return Text("${snapshot.error}");
-                }
-                return CircularProgressIndicator();
-              },
-            ),
-          )
 
 
         ],
