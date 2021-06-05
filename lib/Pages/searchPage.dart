@@ -3,17 +3,18 @@ import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:page_ui/Controllers/userController.dart';
 import 'package:page_ui/Models/User.dart';
+import 'package:page_ui/Pages/searchedItemsPage.dart';
 import 'package:page_ui/Services/apiServices.dart';
 
 import 'package:page_ui/main.dart';
 
 class searchPage extends StatelessWidget {
-  // final myController = TextEditingController();
-  // @override
-  // void dispose(){
-  //   myController.dispose();
-  //
-  // }
+  final myController = TextEditingController();
+  @override
+  void dispose(){
+    myController.dispose();
+
+  }
   final userController = Get.put(UserController());
   @override
   Widget build(BuildContext context) {
@@ -45,7 +46,7 @@ class searchPage extends StatelessWidget {
               ),
               Container(
                 height: 45,
-                width: MediaQuery.of(context).size.width*0.80,
+                width: MediaQuery.of(context).size.width*0.70,
                 color: Colors.grey.shade200,
 
                 child: TextField(
@@ -56,7 +57,7 @@ class searchPage extends StatelessWidget {
 
                   },
                   onEditingComplete: (){
-                    Get.to(Homepage());
+                    Get.to(SearchedItemsPage());
                   },
 
                   decoration: InputDecoration(
@@ -69,10 +70,14 @@ class searchPage extends StatelessWidget {
               ),
 
               Container(
-                child: Icon(
-                 Icons.clear_rounded,
-                  color: Colors.black,
-                  size: 30,
+                child: IconButton(
+                  //iconSize: ,
+                  icon: Icon(Icons.search_rounded),
+                  onPressed: (){
+                    Get.to(SearchedItemsPage());
+                  },
+
+
                 ),
               ),
             ],),
