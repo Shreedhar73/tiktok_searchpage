@@ -7,12 +7,10 @@ class ApiServices{
 
   static var client = http.Client();
   final User user;
+
   ApiServices(this.user);
+
   static const baseurl = "https://ka-mao.xyz";
-
-
-
-
 
 
 
