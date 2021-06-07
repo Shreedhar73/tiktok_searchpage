@@ -26,7 +26,7 @@ class searchPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 30,
+              height: 40,
             ),
             Container(
 
@@ -60,7 +60,7 @@ class searchPage extends StatelessWidget {
 
                     },
                     onEditingComplete: (){
-                      Get.to(SearchedItemsPage(), arguments: myController.text);
+                      Get.to(SearchedItemsPage(data: myController.text) );
                     },
 
                     decoration: InputDecoration(

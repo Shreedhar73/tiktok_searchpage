@@ -5,7 +5,9 @@ import 'package:page_ui/Services/apiServices.dart';
 import 'package:page_ui/main.dart';
 
 class SearchedItemsPage extends StatelessWidget {
-  String data = Get.arguments;
+  final String data;
+  SearchedItemsPage({this.data});
+  final TextEditingController tc = TextEditingController();
 
   final myController = TextEditingController();
   @override
@@ -20,6 +22,11 @@ class SearchedItemsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(data);
+    print("data");
+
+    tc.text = data;
+    print(tc.text);
     return Scaffold(
       body: Container(
 
@@ -28,7 +35,7 @@ class SearchedItemsPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
           SizedBox(
-          height: 30,
+          height: 40,
         ),
         Container(
           padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
@@ -57,7 +64,8 @@ class SearchedItemsPage extends StatelessWidget {
 
                 child: TextField(
 
-                    controller: TextEditingController(text: data),
+
+                    controller: tc,
                     onChanged: (name){
                      userController.searchUser(name);
                     },

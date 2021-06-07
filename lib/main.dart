@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 //import 'package:page_ui/Controllers/userController.dart';
 import 'package:page_ui/Models/User.dart';
+import 'package:page_ui/Pages/AddVideo.dart';
 import 'package:page_ui/Pages/searchPage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'Widgets/Carousel.dart';
@@ -30,10 +31,15 @@ class Homepage extends StatelessWidget {
         builder: (context, SizingInformation sizingInformation)
     {
       return Scaffold(
+        
+
         body: SingleChildScrollView(
           child: Container(
             child: Column(
               children: [
+
+
+
                 SizedBox(height: 45,),
 
                 Container(
@@ -82,7 +88,7 @@ class Homepage extends StatelessWidget {
                 SizedBox(height: 15,),
 
                 //method call for trends
-                buildTrend(sizingInformation,
+                buildTrend(sizingInformation,context,
                     title: "InvisibleMeal",
                     views: "155.6m",
                     description: "Trending HashTag"),
@@ -93,7 +99,7 @@ class Homepage extends StatelessWidget {
 
                 SizedBox(height: 15,),
 
-                buildTrend(sizingInformation,
+                buildTrend(sizingInformation,context,
                     title: "BuddhaPurnima",
                     views: "112.5M",
                     description: "Trending HashTag"),
@@ -103,20 +109,33 @@ class Homepage extends StatelessWidget {
                 buildListView(0),
 
                 SizedBox(height: 15,),
-                buildTrend(sizingInformation,
+                buildTrend(sizingInformation,context,
                     title: "StayHome",
                     views: "115.6M",
                     description: "Trending HashTag"),
 
                 SizedBox(height: 10),
 
-                buildListView(0)
+                buildListView(0),
+
+
 
               ],
             ),
 
           ),
         ),
+        floatingActionButton:  FloatingActionButton.extended(onPressed: (){
+          Get.to(AddVideoPage());
+        },
+
+          label: Text("Post"),
+          icon: Icon(Icons.add_a_photo_outlined),
+          backgroundColor: Colors.pinkAccent.shade200,
+          focusColor: Colors.purple.shade200,
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+
       );
 
 
