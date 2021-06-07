@@ -51,6 +51,10 @@ class AddVideoPage extends StatelessWidget {
               ),
               Divider(height: 5,
               thickness: 4,),
+
+
+
+              //Upload a Video
               Container(
                 height: MediaQuery.of(context).size.height*0.3,
                 child: Row(
@@ -75,39 +79,57 @@ class AddVideoPage extends StatelessWidget {
                       ),
                     ),
                     SizedBox(width: 30),
+
+                    //Description for Video
                     Expanded(
                       child: Container(
 
-                        child: TextField(
-                          keyboardType: TextInputType.multiline,
-                          maxLines: null,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            TextField(
+                              keyboardType: TextInputType.multiline,
+                              maxLines: null,
 
-                          controller: myController,
-                          onChanged: (name){
+                              controller: myController,
+                              onChanged: (name){
 
+                                },
+                              onEditingComplete: (){},
 
-
-                          },
-                          onEditingComplete: (){
-
-                          },
-
-                          decoration: InputDecoration(
-
-
-                              hintStyle: TextStyle(color: Colors.blue),
-
-                              border: InputBorder.none),
+                              decoration: InputDecoration(
+                                  hintStyle: TextStyle(color: Colors.blue),
+                                  border: InputBorder.none),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                MaterialButton(
+                                  color: Colors.white60,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                                    onPressed: (){},
+                                    
+                                    child: Text("#HashTag")),
+                                SizedBox(width: 8,),
+                                MaterialButton(
+                                  color: Colors.white60,
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                                    onPressed: (){},
+                                    child: Text("@Friends"))
+                              ],
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ],
                 ),
-
               ),
-              Divider(height: 5,
-                thickness: 4,),
-              //POST Box
+
+
+              Divider(height: 5, thickness: 4,),
+              //Visibility
+
               Container(
                 height: 50,
                 child: Row(
@@ -124,10 +146,13 @@ class AddVideoPage extends StatelessWidget {
 
                   ],
                 ),
-
               ),
-              //Who can See
+
+
               Divider(height: 2, thickness: 1,),
+
+
+             //Permission
               Container(
                 height: 50,
                 child: Row(
