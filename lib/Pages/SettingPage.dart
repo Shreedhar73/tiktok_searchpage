@@ -42,7 +42,7 @@ class SettingPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
+                      color: Colors.grey.withOpacity(0.1),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(12.0),
@@ -95,7 +95,7 @@ class SettingPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
+                      color: Colors.grey.withOpacity(0.1),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
@@ -186,7 +186,7 @@ class SettingPage extends StatelessWidget {
                 Expanded(
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.2),
+                      color: Colors.grey.withOpacity(0.1),
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
@@ -251,7 +251,8 @@ class SettingPage extends StatelessWidget {
               ),
             ),
             Divider(height: 20,
-            thickness: 20,),
+            thickness: 20,
+            color: Colors.grey.withOpacity(0.1),),
             InkWell(
               onTap: (){},
               child: Container(
@@ -271,7 +272,8 @@ class SettingPage extends StatelessWidget {
               ),
             ),
             Divider(height: 20,
-              thickness: 20,),
+              thickness: 20,
+            color: Colors.grey.withOpacity(0.1),),
             InkWell(
               onTap: (){},
               child: Container(
