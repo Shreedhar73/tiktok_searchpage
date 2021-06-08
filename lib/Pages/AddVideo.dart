@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-
-
 class AddVideoPage extends StatelessWidget {
   final myController = TextEditingController(text: "Want more Likes? Write a description and use a suitable hashtag");
   @override
@@ -10,17 +8,15 @@ class AddVideoPage extends StatelessWidget {
     myController.dispose();
 
   }
-
-
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       resizeToAvoidBottomInset: false,
+
+
       body: Container(
           color: Colors.blueGrey.shade100,
-          child: Column(
-
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,7 +33,6 @@ class AddVideoPage extends StatelessWidget {
                         onPressed: (){
                           Get.back();
                         },
-
                       ),
                     ),
 
@@ -47,6 +42,7 @@ class AddVideoPage extends StatelessWidget {
                       child: Text("Post",style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
                     ),
                   ],
+
                 ),
               ),
               Divider(height: 5,
@@ -198,10 +194,7 @@ class AddVideoPage extends StatelessWidget {
                       child: Text("Drafts"),),
 
                       MaterialButton(
-
-
                         minWidth: MediaQuery.of(context).size.width*0.45,
-
                         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
                         onPressed: (){},
                         color: Colors.pink,

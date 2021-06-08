@@ -5,6 +5,7 @@ import 'package:page_ui/Models/User.dart';
 import 'package:page_ui/Pages/AddVideo.dart';
 import 'package:page_ui/Pages/searchPage.dart';
 import 'package:responsive_builder/responsive_builder.dart';
+import 'Pages/SettingPage.dart';
 import 'Widgets/Carousel.dart';
 import 'Widgets/Trend.dart';
 import 'Widgets/listView.dart';
@@ -53,7 +54,7 @@ class Homepage extends StatelessWidget {
                       Container(
                         height: 45,
                         color: Colors.grey.shade200,
-                        width: sizingInformation.localWidgetSize.width * 0.80,
+                        width: sizingInformation.localWidgetSize.width * 0.77,
                         child: TextField(
                           onTap: () {
                             Get.to(() => searchPage());
@@ -71,6 +72,16 @@ class Homepage extends StatelessWidget {
                         child: Icon(
                           Icons.qr_code_rounded,
                           size: 30,
+                        ),
+                      ),
+                      Container(
+                        child: IconButton(
+                          onPressed: (){
+                            Get.to(SettingPage());
+                          },
+                          icon: Icon(Icons.settings,
+                          size: 30,
+                          color: Colors.black87,),
                         ),
                       )
                     ],
@@ -135,6 +146,8 @@ class Homepage extends StatelessWidget {
           focusColor: Colors.purple.shade200,
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.miniEndFloat,
+
+
 
       );
 
