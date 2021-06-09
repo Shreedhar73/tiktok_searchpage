@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
 import 'package:page_ui/Controllers/userController.dart';
 import 'package:page_ui/Models/User.dart';
+import 'package:page_ui/Pages/ProfilePage.dart';
 import 'package:page_ui/Pages/searchedItemsPage.dart';
 import 'package:page_ui/Services/apiServices.dart';
 
@@ -96,27 +97,32 @@ class searchPage extends StatelessWidget {
                           return Container(
                             alignment: Alignment.centerLeft,
                             padding: EdgeInsets.all(10),
-                            child: Row(
+                            child: InkWell(
+                              onTap: (){
+                                Get.to(() => ProfilePage(user.id));
+                              },
+                              child: Row(
 
-                              children: [
-                                CircleAvatar(
-                                  //radius: 20,
-                                    backgroundColor: Colors.white60,
-                                    child: Image.network(ApiServices.baseurl.toString()+user.profilePicture.toString(),
-                                      errorBuilder: (context, exception, stackTrace){
-                                        return Image.network("https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
-                                      },
-                                    )),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(user.name),
-                                ),
+                                children: [
+                                  CircleAvatar(
+                                    //radius: 20,
+                                      backgroundColor: Colors.white60,
+                                      child: Image.network(ApiServices.baseurl.toString()+user.profilePicture.toString(),
+                                        errorBuilder: (context, exception, stackTrace){
+                                          return Image.network("https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+                                        },
+                                      )),
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(user.name),
+                                  ),
 
 
 
 
 
-                              ],
+                                ],
+                              ),
                             ),
                           );
 

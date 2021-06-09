@@ -33,7 +33,7 @@ class ApiServices{
   }
 
   static Future <Profile> getProfile(userId) async{
-    final String getProfileUrl = "$baseurl/user/:$userId/profile";
+    final String getProfileUrl = "$baseurl/user/$userId/profile";
     var resp = await client.get(getProfileUrl);
     if(resp.statusCode == 200){
       var jsonString = resp.body;

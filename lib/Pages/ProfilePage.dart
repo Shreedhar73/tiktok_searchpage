@@ -1,6 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:page_ui/Models/Profile.dart';
 import 'package:page_ui/Services/apiServices.dart';
@@ -17,14 +16,13 @@ class ProfilePage extends StatelessWidget {
       body: FutureBuilder<Profile>(
         future: ApiServices.getProfile(userId),
         builder: (context, snapshot) {
-          print("Hii");
-
+          //print("Hii");
           if(snapshot.hasData){
             final profiles = snapshot.data;
 
-            print(profiles.name);
 
-            return Container(
+            print(profiles);
+           return Container(
 
 
               height: MediaQuery.of(context).size.height*1,
@@ -32,7 +30,7 @@ class ProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
 
                 children: [
-                  SizedBox(height: MediaQuery.of(context).size.height*0.067,),
+                  SizedBox(height: MediaQuery.of(context).size.height*0.04,),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 4, horizontal: 15),
                     decoration: BoxDecoration(color: Colors.white),
@@ -51,9 +49,9 @@ class ProfilePage extends StatelessWidget {
                         SizedBox(width: MediaQuery.of(context).size.width*0.2),
 
                         Container(
-                          child: Text(profiles.name,style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                          child: Text(profiles.name,style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
                         ),
-                        SizedBox(width: MediaQuery.of(context).size.width*0.2,),
+                        SizedBox(width: MediaQuery.of(context).size.width*0.1,),
 
                         Container(
                           child: Icon(Icons.notifications_none_outlined),
@@ -70,17 +68,26 @@ class ProfilePage extends StatelessWidget {
                   Container(
                     child: Center(
                       child: CircleAvatar(
-                        backgroundColor: Colors.blueGrey.withOpacity(0.4),
-                        radius: 55,
-                        child: Icon(Icons.person, color: Colors.red,size: 80,),
+                          radius: 50,
+                          backgroundColor: Colors.white60,
+                          child: ClipOval(
+
+                            child: Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString(),
+                              errorBuilder: (context, exception, stackTrace){
+                              return Image.network("https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+                              },
+                            ),
+
+                          ),
+
                       ),
                     ),
                   ),
                   Container(
                     child: Center(
                       child: Padding(
-                        padding: const EdgeInsets.all(18.0),
-                        child: Text("@Fallen700", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                        padding: const EdgeInsets.all(12.0),
+                        child: Text(profiles.email, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
                       ),
                     ),
                   ),
@@ -90,22 +97,22 @@ class ProfilePage extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(12.0),
                           child: Container(
                             child: Column(
                               children: [
-                                Text("224",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
+                                Text(profiles.followings.length.toString(),style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
                                 Text("Following",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600)),
                               ],
                             ),
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(20.0),
+                          padding: const EdgeInsets.all(16.0),
                           child: Container(
                             child: Column(
                               children: [
-                                Text("115.5k", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
+                                Text(profiles.followers.length.toString(), style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
                                 Text("Followers",style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600))
                               ],
                             ),
@@ -126,8 +133,9 @@ class ProfilePage extends StatelessWidget {
 
                     ),
                   ),
-                  SizedBox(height: 10,),
+                  //SizedBox(height: 10,),
                   Container(
+
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -135,8 +143,10 @@ class ProfilePage extends StatelessWidget {
                           child:  Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: MaterialButton(
+                              height: 45,
+
                               minWidth: MediaQuery.of(context).size.width*0.25,
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
                               onPressed: (){},
                               color: Colors.pink,
                               child: Text("Follow"),),
@@ -146,6 +156,7 @@ class ProfilePage extends StatelessWidget {
                           child:  Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: MaterialButton(
+                              height: 45,
                                 minWidth: MediaQuery.of(context).size.width*0.1,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
                                 onPressed: (){},
@@ -159,6 +170,7 @@ class ProfilePage extends StatelessWidget {
                           child:  Padding(
                             padding: const EdgeInsets.all(4.0),
                             child: MaterialButton(
+                              height: 45,
                                 minWidth: MediaQuery.of(context).size.width*0.1,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(9)),
                                 onPressed: (){},
@@ -175,7 +187,7 @@ class ProfilePage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Center(
-                        child: Text("Hello There ! ! ! ! !"),
+                        child: Text(profiles.bio, style: TextStyle(fontSize: 20),),
                       ),
                     ),
                   ),

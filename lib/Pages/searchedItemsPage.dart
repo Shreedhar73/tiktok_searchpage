@@ -123,7 +123,7 @@ class SearchedItemsPage extends StatelessWidget {
                             final user = userController.userList[index];
                             return InkWell(
                               onTap: (){
-                                Get.to(ProfilePage(user.id));
+                                Get.to(() => ProfilePage(user.id));
                               },
                               child: Container(
                                 alignment: Alignment.centerLeft,
@@ -134,11 +134,13 @@ class SearchedItemsPage extends StatelessWidget {
                                     CircleAvatar(
                                       //radius: 20,
                                         backgroundColor: Colors.white60,
-                                        child: Image.network(ApiServices.baseurl.toString()+user.profilePicture.toString(),
+                                        child: Image.network(
+                                          ApiServices.baseurl.toString()+user.profilePicture.toString(),
                                           errorBuilder: (context, exception, stackTrace){
                                             return Image.network("https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
                                           },
-                                        )),
+                                        )
+                                    ),
                                     Column(
                                       crossAxisAlignment: CrossAxisAlignment.start,
 
