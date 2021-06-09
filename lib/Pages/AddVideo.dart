@@ -135,7 +135,7 @@ class AddVideoPage extends StatelessWidget {
                     SizedBox(width: 5,),
 
                     Text("Who can see ", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600),),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.54,),
+                    SizedBox(width: MediaQuery.of(context).size.width*0.50,),
                     Text("Public", style: TextStyle(color: Colors.black87),),
                     SizedBox(width: MediaQuery.of(context).size.width*0.03),
                     Icon(Icons.arrow_forward_ios_rounded)
@@ -157,7 +157,7 @@ class AddVideoPage extends StatelessWidget {
                     Icon(Icons.lock_open_sharp, color: Colors.black38,),
                     SizedBox(width: 5,),
                     Text("Permission", style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600)),
-                    SizedBox(width: MediaQuery.of(context).size.width*0.69,),
+                    SizedBox(width: MediaQuery.of(context).size.width*0.65,),
                     Icon(Icons.arrow_forward_ios_rounded)
 
 

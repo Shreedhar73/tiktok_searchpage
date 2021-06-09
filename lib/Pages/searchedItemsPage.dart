@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:page_ui/Controllers/userController.dart';
+import 'package:page_ui/Pages/ProfilePage.dart';
 import 'package:page_ui/Services/apiServices.dart';
 import 'package:page_ui/main.dart';
 
@@ -120,36 +121,41 @@ class SearchedItemsPage extends StatelessWidget {
                           itemCount: userController.userList.length,
                           itemBuilder: (context, index){
                             final user = userController.userList[index];
-                            return Container(
-                              alignment: Alignment.centerLeft,
-                              padding: EdgeInsets.all(10),
-                              child: Row(
+                            return InkWell(
+                              onTap: (){
+                                Get.to(ProfilePage(user.id));
+                              },
+                              child: Container(
+                                alignment: Alignment.centerLeft,
+                                padding: EdgeInsets.all(10),
+                                child: Row(
 
-                                children: [
-                                  CircleAvatar(
-                                    //radius: 20,
-                                      backgroundColor: Colors.white60,
-                                      child: Image.network(ApiServices.baseurl.toString()+user.profilePicture.toString(),
-                                        errorBuilder: (context, exception, stackTrace){
-                                          return Image.network("https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
-                                        },
-                                      )),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CircleAvatar(
+                                      //radius: 20,
+                                        backgroundColor: Colors.white60,
+                                        child: Image.network(ApiServices.baseurl.toString()+user.profilePicture.toString(),
+                                          errorBuilder: (context, exception, stackTrace){
+                                            return Image.network("https://images.unsplash.com/photo-1457449940276-e8deed18bfff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80");
+                                          },
+                                        )),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
 
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(10.0),
-                                        child: Text(user.name),
-                                      ),
-                                      Padding(
-                                        padding: const EdgeInsets.only(left: 10),
-                                        child: Text(user.followers.toString() + "  Followers"),
-                                      )
-                                    ],
-                                  ),
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.all(10.0),
+                                          child: Text(user.name),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(left: 10),
+                                          child: Text(user.followers.toString() + "  Followers"),
+                                        )
+                                      ],
+                                    ),
 
-                                ],
+                                  ],
+                                ),
                               ),
                             );
 

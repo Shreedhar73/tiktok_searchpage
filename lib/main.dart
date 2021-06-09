@@ -34,106 +34,108 @@ class Homepage extends StatelessWidget {
       return Scaffold(
         
 
-        body: SingleChildScrollView(
-          child: Container(
-            child: Column(
-              children: [
+        body: SafeArea(
+          child: SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: [
 
 
 
-                SizedBox(height: 45,),
+                  SizedBox(height: 45,),
 
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(.4),
+                  Container(
+                    padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(.4),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Container(
+                          height: 45,
+                          color: Colors.grey.shade200,
+                          width: sizingInformation.localWidgetSize.width * 0.74,
+                          child: TextField(
+                            onTap: () {
+                              Get.to(() => searchPage());
+                            },
+                            decoration: InputDecoration(
+                                hintText: "Search",
+                                hintStyle: TextStyle(),
+                                prefixIcon: Icon(Icons.search,
+                                  color: Colors.black,),
+
+                                border: InputBorder.none),
+                          ),
+                        ),
+                        Container(
+                          child: Icon(
+                            Icons.qr_code_rounded,
+                            size: 30,
+                          ),
+                        ),
+                        Container(
+                          child: IconButton(
+                            onPressed: (){
+                              Get.to(SettingPage());
+                            },
+                            icon: Icon(Icons.settings,
+                            size: 30,
+                            color: Colors.black87,),
+                          ),
+                        )
+                      ],
+                    ),
+
+
                   ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Container(
-                        height: 45,
-                        color: Colors.grey.shade200,
-                        width: sizingInformation.localWidgetSize.width * 0.77,
-                        child: TextField(
-                          onTap: () {
-                            Get.to(() => searchPage());
-                          },
-                          decoration: InputDecoration(
-                              hintText: "Search",
-                              hintStyle: TextStyle(),
-                              prefixIcon: Icon(Icons.search,
-                                color: Colors.black,),
 
-                              border: InputBorder.none),
-                        ),
-                      ),
-                      Container(
-                        child: Icon(
-                          Icons.qr_code_rounded,
-                          size: 30,
-                        ),
-                      ),
-                      Container(
-                        child: IconButton(
-                          onPressed: (){
-                            Get.to(SettingPage());
-                          },
-                          icon: Icon(Icons.settings,
-                          size: 30,
-                          color: Colors.black87,),
-                        ),
-                      )
-                    ],
+                  SizedBox(
+                    height: 15,
                   ),
+                  //method call for Carousel
+                  carousel(sizingInformation),
 
+                  SizedBox(height: 15,),
 
-                ),
+                  //method call for trends
+                  buildTrend(sizingInformation,context,
+                      title: "InvisibleMeal",
+                      views: "155.6m",
+                      description: "Trending HashTag"),
 
-                SizedBox(
-                  height: 15,
-                ),
-                //method call for Carousel
-                carousel(sizingInformation),
+                  SizedBox(height: 15,),
+                  //method call for list View
+                  buildListView(0),
 
-                SizedBox(height: 15,),
+                  SizedBox(height: 15,),
 
-                //method call for trends
-                buildTrend(sizingInformation,context,
-                    title: "InvisibleMeal",
-                    views: "155.6m",
-                    description: "Trending HashTag"),
+                  buildTrend(sizingInformation,context,
+                      title: "BuddhaPurnima",
+                      views: "112.5M",
+                      description: "Trending HashTag"),
 
-                SizedBox(height: 15,),
-                //method call for list View
-                buildListView(0),
+                  SizedBox(height: 15,),
 
-                SizedBox(height: 15,),
+                  buildListView(0),
 
-                buildTrend(sizingInformation,context,
-                    title: "BuddhaPurnima",
-                    views: "112.5M",
-                    description: "Trending HashTag"),
+                  SizedBox(height: 15,),
+                  buildTrend(sizingInformation,context,
+                      title: "StayHome",
+                      views: "115.6M",
+                      description: "Trending HashTag"),
 
-                SizedBox(height: 15,),
+                  SizedBox(height: 10),
 
-                buildListView(0),
-
-                SizedBox(height: 15,),
-                buildTrend(sizingInformation,context,
-                    title: "StayHome",
-                    views: "115.6M",
-                    description: "Trending HashTag"),
-
-                SizedBox(height: 10),
-
-                buildListView(0),
+                  buildListView(0),
 
 
 
-              ],
+                ],
+              ),
+
             ),
-
           ),
         ),
         floatingActionButton:  FloatingActionButton.extended(onPressed: (){
