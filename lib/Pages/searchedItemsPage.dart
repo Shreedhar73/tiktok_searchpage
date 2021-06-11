@@ -16,18 +16,14 @@ class SearchedItemsPage extends StatelessWidget {
     myController.dispose();
 
   }
-
-
   final userController = Get.put(UserController());
-
 
   @override
   Widget build(BuildContext context) {
-    print(data);
-    print("data");
+
 
     tc.text = data;
-    print(tc.text);
+
     return Scaffold(
       body: Container(
 
@@ -197,8 +193,6 @@ class SearchedItemsPage extends StatelessWidget {
                                       )
                                     ],
                                   ),
-
-
                                 ],
                               ),
                             );
@@ -206,7 +200,6 @@ class SearchedItemsPage extends StatelessWidget {
                           })
                       ),
                       Center(child: Text("Welcome")),
-
                     ],
                   ),
                 ),
@@ -220,11 +213,5 @@ class SearchedItemsPage extends StatelessWidget {
     ),
       ),
     );
-
-
-
-
-
-
-}
+  }
 }

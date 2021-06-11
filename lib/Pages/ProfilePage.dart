@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:page_ui/Models/Profile.dart';
@@ -199,6 +200,70 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
+
+
+                  Divider(height: 2, thickness: 1,),
+                  //SizedBox(height: 20,),
+                  DefaultTabController(length:2 ,
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            TabBar(
+                              indicatorColor: Colors.pinkAccent.shade100,
+                                unselectedLabelColor: Colors.grey,
+                                tabs:[
+                                  Tab(icon: Icon(Icons.fullscreen_exit_rounded, color: Colors.red,)),
+                                  Tab(icon: Icon(Icons.favorite, color: Colors.red,))
+
+                                ] ),
+                            SizedBox(height: 20,),
+                            Container(
+                              height: MediaQuery.of(context).size.height*0.3,
+                              child: TabBarView(
+
+                                children: [
+                                  GridView.count(
+                                    scrollDirection: Axis.vertical,
+                                    crossAxisCount: 3,
+                                    crossAxisSpacing: 5,
+                                    mainAxisSpacing: 5,
+                                    children: [
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                      Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+
+                                    ],
+
+                                  ),
+                                 GridView.count(
+                                   crossAxisCount: 3,
+                                   crossAxisSpacing: 5,
+                                   mainAxisSpacing: 5,
+                                   children: [
+                                     Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                     Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                     Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                     Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                     Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                     Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
+                                   ],
+                                 )
+
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      )),
 
                 ],
               ),
