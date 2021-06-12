@@ -30,13 +30,14 @@ class ProfilePage extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
 
+
                 children: [
                   SizedBox(height: MediaQuery.of(context).size.height*0.04,),
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 4, horizontal: 15),
                     decoration: BoxDecoration(color: Colors.white),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           child: IconButton(
@@ -49,15 +50,19 @@ class ProfilePage extends StatelessWidget {
 
                         SizedBox(width: MediaQuery.of(context).size.width*0.2),
 
-                        Container(
-                          child: Text(profiles.name,style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                        Flexible(
+                          child: Container(
+                            child: Text(profiles.name,
+                              overflow: TextOverflow.ellipsis,
+                              style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),),
+                          ),
                         ),
                         SizedBox(width: MediaQuery.of(context).size.width*0.1,),
 
                         Container(
                           child: Icon(Icons.notifications_none_outlined),
                         ),
-                        SizedBox(width: 12),
+
                         Container(child: Icon(Icons.more_vert),),
                       ],
 
@@ -218,7 +223,7 @@ class ProfilePage extends StatelessWidget {
                                 ] ),
                             SizedBox(height: 20,),
                             Container(
-                              height: MediaQuery.of(context).size.height*0.3,
+                             height: MediaQuery.of(context).size.height*0.35,
                               child: TabBarView(
 
                                 children: [
