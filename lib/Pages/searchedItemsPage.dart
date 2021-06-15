@@ -60,7 +60,7 @@ class SearchedItemsPage extends StatelessWidget {
                 color: Colors.grey.shade200,
 
                 child: TextField(
-
+                    style: TextStyle(color: Colors.black),
 
                     controller: tc,
                     onChanged: (name){

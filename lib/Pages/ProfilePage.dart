@@ -61,12 +61,15 @@ class ProfilePage extends StatelessWidget {
                              child: Container(
                                child: Column(
                                  children: [
+                                   SizedBox(height: 8,),
                                    Container(
                                      child: Center(
                                        child: CircleAvatar(
                                          radius: 50,
                                          backgroundColor: Colors.white60,
+                                         //backgroundImage: NetworkImage(ApiServices.baseurl.toString()+profiles.profilePicture.toString()),
                                          child: ClipOval(
+                                           //clipBehavior: Clip.hardEdge,
 
                                            child: Image.network(ApiServices.baseurl.toString()+profiles.profilePicture.toString(),
                                              errorBuilder: (context, exception, stackTrace){

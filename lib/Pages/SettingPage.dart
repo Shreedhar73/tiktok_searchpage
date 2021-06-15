@@ -183,6 +183,25 @@ class SettingPage extends StatelessWidget {
                   ),
                 ),
               ),
+              GestureDetector(
+                onTap: (){
+                  Get.isDarkMode
+                      ? Get.changeTheme(ThemeData.light())
+                      :Get.changeTheme(ThemeData.dark());
+                },
+                child: Container(
+                  height: 45,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Icon(Icons.invert_colors, color: Colors.black,),
+                      SizedBox(width: 12,),
+                      Text("Change Theme", style: TextStyle(fontSize: 18),)
+
+                    ],
+                  ),
+                ),
+              ),
 
               Row(
                 children: [

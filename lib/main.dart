@@ -19,6 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        brightness: Brightness.light,
+      ),
+      darkTheme: ThemeData(
+        brightness: Brightness.dark
+      ),
+      themeMode: ThemeMode.system,
       home: Homepage(),
     );
   }
@@ -132,12 +139,15 @@ class Homepage extends StatelessWidget {
 
 
 
+
+
                 ],
               ),
 
             ),
           ),
         ),
+
         floatingActionButton:  FloatingActionButton.extended(onPressed: (){
           Get.to(AddVideoPage());
         },

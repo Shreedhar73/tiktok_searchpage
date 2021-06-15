@@ -10,6 +10,7 @@ import 'package:page_ui/Services/apiServices.dart';
 import 'package:page_ui/main.dart';
 
 class searchPage extends StatelessWidget {
+
   final myController = TextEditingController();
   @override
   void dispose(){
@@ -54,6 +55,7 @@ class searchPage extends StatelessWidget {
                   color: Colors.grey.shade200,
 
                   child: TextField(
+                    style: TextStyle(color: Colors.black),
                     controller: myController,
                     onChanged: (name){
                       userController.searchUser(name);
